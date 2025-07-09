@@ -1,0 +1,200 @@
+@include url("/public/font/maple-mono.css");
+
+.gruvbox-dark {
+    --col-bg-hd: #1d2021;
+    --col-bg-0: #282828;
+    --col-bg-1: #3c3836;
+    --col-bg-2: #504945;
+    --col-bg-3: #665c54;
+    --col-bg-4: #7c6f64;
+
+    --col-fg-0: #fbf1c7;
+    --col-fg-1: #ebdbb2;
+    --col-fg-2: #d5c4a1;
+    --col-fg-3: #bdae93;
+    --col-fg-4: #a89984;
+
+    --col-rd: #cc241d;
+    --col-rd-hd: #fb4934;
+
+    --col-yl: #d79921;
+    --col-yl-hd: #fabd2f;
+
+    --col-aq: #689d6a;
+    --col-aq-hd: #8ec07c;
+
+    --col-bl: #458588;
+    --col-bl-hd: #83a598;
+
+    --col-mg: #b16286;
+    --col-mg-hd: #d3869b;
+
+    --padding-outer: 3rem;
+    --gap-horizontal: 4rem;
+    --gap-vertical: 3rem;
+
+    --col-separator: var(--col-bg-2);
+}
+
+html {
+    min-width: 0;
+    min-height: 0;
+}
+body {
+    font-family: system-ui, sans-serif;
+    height: calc(100dvh - 2 * var(--padding-outer));
+    padding: var(--padding-outer);
+    gap: var(--gap-vertical);
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--col-bg-0);
+    color: var(--col-fg-1);
+    max-width: 1200px;
+}
+
+nav {
+    color: var(--col-fg-0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding-bottom: calc(var(--gap-vertical) / 2);
+    margin-bottom: calc(-1 * var(--gap-vertical) / 2);
+    border-bottom: 1px solid var(--col-separator);
+    li {
+        a {
+            color: var(--col-fg-0);
+            &:not(:hover) {
+                text-decoration: none;
+            }
+        }
+        &.active {
+            a {
+                color: var(--col-yl-hd);
+            }
+        }
+    }
+
+    span.home-link {
+        > img {
+            width: 2rem;
+            height: 2rem;
+            vertical-align: middle;
+            margin: -0.33rem;
+        }
+        a {
+            margin-left: 0.5rem;
+            color: var(--col-yl-hd);
+            font-weight: normal;
+            &:not(:hover) {
+                text-decoration: none;
+            }
+        }
+    }
+    padding-inline: 1rem;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+main {
+    display: flex;
+    min-height: 0;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--gap-horizontal);
+    padding-inline: calc(var(--padding-outer) / 2);
+
+    :first-child {
+        margin-top: 0;
+    }
+}
+a {
+    color: var(--col-yl-hd);
+}
+
+aside {
+    @media (max-width: 800px) {
+        display: none;
+    }
+    width: 15rem;
+    flex-shrink: 0;
+    .hrule {
+        border-top: 1px solid var(--col-separator);
+        margin: calc(var(--gap-vertical) / 2) 0;
+    }
+}
+
+ul.post-list {
+    margin: 0;
+    padding: 0;
+    li {
+        display: flex;
+        a {
+            overflow: hidden;
+            text-overflow: "...";
+            white-space: nowrap;
+        }
+    }
+}
+
+.toc {
+    ul {
+        list-style: "> ";
+        margin: 0.25rem 0;
+        padding-left: 2ch;
+        a:not(:hover) {
+            text-decoration: none;
+        }
+    }
+}
+
+article {
+    border-right: 1px solid var(--col-bg-2);
+    padding-right: calc(var(--gap-horizontal) / 2);
+    margin-right: calc(-1 * var(--gap-horizontal) / 2);
+
+    @media (max-width: 800px) {
+        border-right: none;
+        padding-right: calc(var(--padding-outer) / 2);
+        margin-right: calc(-1 * var(--padding-outer) / 2);
+    }
+
+    flex-grow: 1;
+    overflow-y: scroll;
+    p.date {
+        color: var(--col-fg-3);
+        font-size: 0.9rem;
+        margin-top: 0;
+    }
+}
+
+.pretty-path {
+    color: var(--col-fg-2);
+    font-family: "Maple Mono", monospace;
+    margin-top: 0;
+    span {
+        color: var(--col-fg-0);
+    }
+    a {
+        color: var(--col-yl);
+        text-decoration: none;
+    }
+}
+
+span.dotrule {
+    flex-grow: 1;
+    min-width: 1rem;
+    border-bottom: 1px solid var(--col-separator);
+    margin: 0.5lh;
+}

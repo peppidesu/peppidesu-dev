@@ -1,0 +1,27 @@
+{% from "/components/pretty-path.jinja" import pretty_path %}
+{% from "/components/navbar.jinja" import navbar %}
+
+<!doctype html>
+<html lang="en" class="gruvbox-dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{title}} - peppidesu.dev</title>
+        <link rel="stylesheet" href="/public/css/style.css" />
+    </head>
+    <body>
+        {{ navbar("blog") }}
+        <main>
+            <article>
+                <h1>{{ title }}</h1>
+                <span class="date">{{ date }}</span>
+                {{ content | safe }}
+            </article>
+            <aside>
+                <h2>Contents</h2>
+                {{ toc | safe }}
+                <div class="hrule"></div>
+            </aside>
+        </main>
+    </body>
+</html>

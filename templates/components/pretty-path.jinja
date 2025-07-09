@@ -1,0 +1,9 @@
+{% macro pretty_path(path_parts) %}
+{% for part in path_parts %}
+    {% if loop.last %}
+        <span>{{ part[0] }}</span>
+    {% else %}
+        <a href="{{ part[1] }}">{{ part[0] }}</a> &gt;
+    {% endif %}
+{% endfor %}
+{% endmacro %}

@@ -1,0 +1,19 @@
+{% macro navbar(selection) %}
+<nav>
+    <span class="home-link">
+        <img src="/public/img/icon.avif" />
+        <a href="/">peppidesu.dev</a>
+    </span>
+    <span class="dotrule"></span>
+    <ul>
+        {{ navbar_item('projects', '/projects', 'projects', selection) }}
+        {{ navbar_item('blog', '/blog', 'blog', selection) }}
+    </ul>
+</nav>
+{% endmacro %}
+
+{% macro navbar_item(id, url, display, selection) %}
+<li class="{% if selection == id %}active{% endif %}">
+    <a href="{{ url }}">{{ display }}</a>
+</li>
+{% endmacro %}
